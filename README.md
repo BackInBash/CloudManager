@@ -477,11 +477,7 @@ Result:
 Endpoint:
 
 ```console
-<<<<<<< HEAD
-/api/server/byID/2784039
-=======
 /api/server/byID/test2
->>>>>>> f48fb19c64873cd0bd6b5a8ff5883e499bf23b80
 ```
 
 Result:
