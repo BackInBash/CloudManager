@@ -477,7 +477,7 @@ Result:
 Endpoint:
 
 ```console
-/api/server/byID/2784039
+/api/server/byID/test2
 ```
 
 Result:
