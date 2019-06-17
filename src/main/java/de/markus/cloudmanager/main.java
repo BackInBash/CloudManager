@@ -7,7 +7,6 @@ package de.markus.cloudmanager;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import me.tomsdevsn.hetznercloud.objects.general.Server;
 import org.quartz.SchedulerException;
 
 /**
@@ -26,7 +25,9 @@ public class main {
         } catch (SchedulerException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         // Start Jetty
         de.markus.cloudmanager.api.jetty.server.startup();
+        
     }
 }
