@@ -64,10 +64,10 @@ public class config {
         try {
             Config ConfigObject = gson.fromJson(data, Config.class);
             APIKEY = ConfigObject.APIKEY;
-            //DB_IP = ConfigObject.DB_IP;
-            //DB_NAME = ConfigObject.DB_NAME;
-            //DB_USER = ConfigObject.DB_USER;
-            //DB_PASSWORD = ConfigObject.DB_PASSWORD;
+            DB_IP = ConfigObject.DB_IP;
+            DB_NAME = ConfigObject.DB_NAME;
+            DB_USER = ConfigObject.DB_USER;
+            DB_PASSWORD = ConfigObject.DB_PASSWORD;
         } catch (Exception ex) {
             System.out.println("ERROR: "+ex.getMessage());
             System.exit(1);

@@ -8,6 +8,7 @@ de/markus/cloudmanager/config/config.class
 de/markus/cloudmanager/shared/db/add.class
 de/markus/cloudmanager/shared/models/APIError.class
 de/markus/cloudmanager/shared/cloudinit/decode.class
+de/markus/cloudmanager/shared/db/config.class
 de/markus/cloudmanager/shared/ssh/key.class
 de/markus/cloudmanager/shared/ssh/execute.class
 de/markus/cloudmanager/shared/cloud/hetzner/delete.class
