@@ -6,6 +6,7 @@
 package de.markus.cloudmanager.api.jetty.post;
 
 import com.google.gson.Gson;
+import de.markus.cloudmanager.shared.models.APICreateCloudInit;
 import de.markus.cloudmanager.shared.models.APICreateServer;
 import de.markus.cloudmanager.shared.models.APIResult;
 import javax.ws.rs.Consumes;
@@ -21,9 +22,9 @@ import me.tomsdevsn.hetznercloud.objects.general.Server;
  */
 @Path("/create")
 public class create {
-    
+
     Gson gson = new Gson();
-    
+
     @POST
     @Path("/server")
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,17 +32,44 @@ public class create {
     public String server(String jsonRequest) {
         de.markus.cloudmanager.shared.cloud.hetzner.create srvrequest = new de.markus.cloudmanager.shared.cloud.hetzner.create();
         de.markus.cloudmanager.shared.db.add db = new de.markus.cloudmanager.shared.db.add();
+        APIResult res = new APIResult();
+        
         APICreateServer srv = gson.fromJson(jsonRequest, APICreateServer.class);
         
-        Server created = srvrequest.servers(srv.Name, srv.Type, srv.DC, srv.OS);
-        db.server(created.getId(), created.getName(), created.getPublicNet().getIpv4().getIp() ,srv.Tag);
-        
-        
-        
-        APIResult res = new APIResult();
         res.Action = "Create Server";
+        Server created = null;
+        try {
+            created = srvrequest.servers(srv.Name, srv.Type, srv.DC, srv.OS);
+            db.server(created.getId(), created.getName(), created.getPublicNet().getIpv4().getIp(), srv.Tag);
+        } catch (Exception ex) {
+            res.Result = "Status: "+created.getStatus()+" Message: "+ex.getMessage();
+            return gson.toJson(res);
+        }
+                
         res.Result = created.getStatus();
-        
         return gson.toJson(res);
     }
+
+    @POST
+    @Path("/cloudinit")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String cloudinit(String jsonRequest) {
+        de.markus.cloudmanager.shared.db.add db = new de.markus.cloudmanager.shared.db.add();
+        APICreateCloudInit conf = gson.fromJson(jsonRequest, APICreateCloudInit.class);
+        APIResult res = new APIResult();
+        res.Action = "Create CloudInit";
+
+        try {
+            db.cloudinit(conf.Name, conf.Payload);
+        } catch (Exception ex) {
+            res.Result = "Status: " + ex.getMessage();
+            return gson.toJson(res);
+        }
+
+        res.Result = "Status: success";
+
+        return gson.toJson(res);
+    }
+
 }

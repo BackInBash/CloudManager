@@ -26,24 +26,23 @@ public class config {
         Connection conn = null;
 
         try {
-            SQL = DriverManager.getConnection("jdbc:mysql://" + de.markus.cloudmanager.config.config.getDBIP() + "/" + de.markus.cloudmanager.config.config.getDBName() + "", de.markus.cloudmanager.config.config.getDBUser(), de.markus.cloudmanager.config.config.getDBPassword());
+            SQL = DriverManager.getConnection("jdbc:mysql://" + de.markus.cloudmanager.config.config.getDBIP() + ":3306/" + de.markus.cloudmanager.config.config.getDBName()+"?serverTimezone=EST5EDT", de.markus.cloudmanager.config.config.getDBUser(), de.markus.cloudmanager.config.config.getDBPassword());
+            //SQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","root");
             conn = SQL;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
                 }
             }
             if (SQL != null) {
                 try {
                     SQL.close();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
                 }
             }
         }

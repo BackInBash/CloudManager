@@ -1,0 +1,14 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+ - htop
+ - iftop
+ - apache2
+ - unzip
+ - curl
+ - git
+
+runcmd:
+ - [ sh, -c, 'touch /tmp/cloudinit-worked' ]
