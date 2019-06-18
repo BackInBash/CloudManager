@@ -16,4 +16,5 @@ public class APICreateServer {
     public String DC;
     public String OS;
     public String Tag;
+    public String UserData;
 }

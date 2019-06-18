@@ -32,21 +32,29 @@ public class create {
     public String server(String jsonRequest) {
         de.markus.cloudmanager.shared.cloud.hetzner.create srvrequest = new de.markus.cloudmanager.shared.cloud.hetzner.create();
         de.markus.cloudmanager.shared.db.add db = new de.markus.cloudmanager.shared.db.add();
+        de.markus.cloudmanager.shared.db.get dbs = new de.markus.cloudmanager.shared.db.get();
         APIResult res = new APIResult();
-        
-        APICreateServer srv = gson.fromJson(jsonRequest, APICreateServer.class);
-        
+        de.markus.cloudmanager.shared.cloudinit.decode d = new de.markus.cloudmanager.shared.cloudinit.decode();
+
         res.Action = "Create Server";
-        Server created = null;
         try {
-            created = srvrequest.servers(srv.Name, srv.Type, srv.DC, srv.OS);
-            db.server(created.getId(), created.getName(), created.getPublicNet().getIpv4().getIp(), srv.Tag);
-        } catch (Exception ex) {
-            res.Result = "Status: "+created.getStatus()+" Message: "+ex.getMessage();
-            return gson.toJson(res);
+            APICreateServer srv = gson.fromJson(jsonRequest, APICreateServer.class);
+
+            String CloudInit = d.base64(dbs.cloudinit(srv.UserData));
+
+            Server created = null;
+            try {
+                created = srvrequest.servers(srv.Name, srv.Type, srv.DC, srv.OS, CloudInit);
+                db.server(created.getId(), created.getName(), created.getPublicNet().getIpv4().getIp(), srv.Tag);
+            } catch (Exception ex) {
+                res.Result = "Status: " + created.getStatus() + " Message: " + ex.getMessage();
+                return gson.toJson(res);
+            }
+
+            res.Result = created.getStatus();
+        } catch (Exception e) {
+            res.Result = e.getMessage();
         }
-                
-        res.Result = created.getStatus();
         return gson.toJson(res);
     }
 

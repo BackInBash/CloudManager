@@ -5,10 +5,16 @@
  */
 package de.markus.cloudmanager.shared.cloudinit;
 
+import java.util.Base64;
+
 /**
  *
  * @author hax0r
  */
 public class decode {
-    
+
+    public String base64(String Payload) {
+        byte[] decoded = Base64.getDecoder().decode(Payload);
+        return new String(decoded);
+    }
 }
