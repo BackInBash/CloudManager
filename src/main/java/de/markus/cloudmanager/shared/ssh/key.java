@@ -32,7 +32,6 @@ public class key {
 
         keyPair.writePrivateKey(privateKeyBuff);
 
-        System.out.println(publicKeyBuff.toString());
         return new SshPublicPrivateKey(privateKeyBuff.toString(), publicKeyBuff.toString());
     }
 

@@ -36,4 +36,44 @@ public class get extends config {
         }
         return null;
     }
+    
+    public String PubSSHKey(long ID) {
+        open();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        try {
+            stm = SQL.prepareStatement("SELECT * FROM SSH WHERE ID = ?");
+            stm.setLong(1, ID);
+            rs = stm.executeQuery();
+            rs.next();
+            return rs.getString("PublicKey");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(add.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+        return null;
+    }
+    
+    public String PrivSSHKey(long ID) {
+        open();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        try {
+            stm = SQL.prepareStatement("SELECT * FROM SSH WHERE ID = ?");
+            stm.setLong(1, ID);
+            rs = stm.executeQuery();
+            rs.next();
+            return rs.getString("PrivateKey");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(add.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close();
+        }
+        return null;
+    }
 }

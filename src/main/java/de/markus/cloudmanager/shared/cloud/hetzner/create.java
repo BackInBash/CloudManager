@@ -15,24 +15,25 @@ import me.tomsdevsn.hetznercloud.objects.response.ServerResponse;
  */
 public class create extends api {
 
-    public Server servers(String name, String type, String dc, String os, String userData) {
+    public Server servers(String name, String type, String dc, String os, String userData) throws Exception {
+        ServerResponse responseServer = null;
+        try {
+            ServerRequest requestServer = ServerRequest.builder()
+                    .name(name)
+                    .serverType(type)
+                    .location(dc)
+                    .image(os)
+                    .startAfterCreate(true)
+                    .userData(userData)
+                    //.sshKeys(Arrays.asList(2991L))
+                    .build();
 
-        ServerRequest requestServer = ServerRequest.builder()
-                .name(name)
-                .serverType(type)
-                .location(dc)
-                .image(os)
-                .startAfterCreate(true)
-                .userData(userData)
-                //.sshKeys(Arrays.asList(2991L))
-                .build();
-
-        ServerResponse responseServer = cloudAPI.createServer(requestServer);
-        if (responseServer.getAction().getStatus().equals("success")) {
+            responseServer = cloudAPI.createServer(requestServer);
             return responseServer.getServer();
+            
+        } catch (Exception e) {
+            throw e;
         }
-        return null;
-
     }
 
 }

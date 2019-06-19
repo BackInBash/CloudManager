@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import de.markus.cloudmanager.shared.models.APICreateCloudInit;
 import de.markus.cloudmanager.shared.models.APICreateServer;
 import de.markus.cloudmanager.shared.models.APIResult;
+import de.markus.cloudmanager.shared.models.SshPublicPrivateKey;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +25,7 @@ import me.tomsdevsn.hetznercloud.objects.general.Server;
 public class create {
 
     Gson gson = new Gson();
+    private final String ssh = "\nssh_authorized_keys:\n - PUB";
 
     @POST
     @Path("/server")
@@ -33,25 +35,30 @@ public class create {
         de.markus.cloudmanager.shared.cloud.hetzner.create srvrequest = new de.markus.cloudmanager.shared.cloud.hetzner.create();
         de.markus.cloudmanager.shared.db.add db = new de.markus.cloudmanager.shared.db.add();
         de.markus.cloudmanager.shared.db.get dbs = new de.markus.cloudmanager.shared.db.get();
+        de.markus.cloudmanager.shared.ssh.key genssh = new de.markus.cloudmanager.shared.ssh.key();
         APIResult res = new APIResult();
         de.markus.cloudmanager.shared.cloudinit.decode d = new de.markus.cloudmanager.shared.cloudinit.decode();
 
         res.Action = "Create Server";
         try {
             APICreateServer srv = gson.fromJson(jsonRequest, APICreateServer.class);
+            SshPublicPrivateKey key = genssh.generateSSHKeys();
 
             String CloudInit = d.base64(dbs.cloudinit(srv.UserData));
-
+            CloudInit += ssh.replaceFirst("PUB", key.getSshPublicKey());
+            
             Server created = null;
             try {
                 created = srvrequest.servers(srv.Name, srv.Type, srv.DC, srv.OS, CloudInit);
                 db.server(created.getId(), created.getName(), created.getPublicNet().getIpv4().getIp(), srv.Tag);
+                db.ssh(created.getId(), key.getSshPublicKey(), key.getSshPrivateKey());
             } catch (Exception ex) {
                 res.Result = "Status: " + created.getStatus() + " Message: " + ex.getMessage();
                 return gson.toJson(res);
             }
-
+            
             res.Result = created.getStatus();
+            
         } catch (Exception e) {
             res.Result = e.getMessage();
         }
