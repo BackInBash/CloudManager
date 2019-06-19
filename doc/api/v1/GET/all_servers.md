@@ -1,15 +1,15 @@
 ## Get All Servers
 
-###Method:
+### Method:
 GET
 
-###Endpoint:
+### Endpoint:
 
 ```console
 /api/servers/all
 ```
 
-###Response:
+### Response:
 
 ```json
 [

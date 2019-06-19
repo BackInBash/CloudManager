@@ -1,15 +1,15 @@
 ## Get Server by Name
 
-###Method:
+### Method:
 GET
 
-###Endpoint:
+### Endpoint:
 
 ```console
 /api/servers/byName/test2
 ```
 
-###Response:
+### Response:
 
 ```json
 [

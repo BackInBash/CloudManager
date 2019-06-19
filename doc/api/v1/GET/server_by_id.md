@@ -1,15 +1,15 @@
 ## Get Server by ID
 
-###Method:
+### Method:
 GET
 
-###Endpoint:
+### Endpoint:
 
 ```console
 /api/servers/byID/2784005
 ```
 
-###Response:
+### Response:
 
 ```json
 {

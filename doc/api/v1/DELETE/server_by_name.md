@@ -1,16 +1,16 @@
 ## Delete Server by Name
 (Sollten mehrere Server mit dem Namen gefunden werden, bricht der Löschvorgang ab!)
 
-###Method:
+### Method:
 DELETE
 
-###Endpoint:
+### Endpoint:
 
 ```console
 /api/server/byID/test2
 ```
 
-###Result:
+### Result:
 
 ```json
 {

@@ -1,15 +1,15 @@
 ## Delete Server by ID
 
-###Method:
+### Method:
 DELETE
 
-###Endpoint:
+### Endpoint:
 
 ```console
 /api/server/byID/2784038
 ```
 
-###Result:
+### Result:
 
 ```json
 {

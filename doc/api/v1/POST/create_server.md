@@ -1,13 +1,13 @@
 ## Create Server
 
-###Method:
+### Method:
 POST
 
-###Endpoint:
+### Endpoint:
 ```console
 /api/create/server
 ```
-###Input:
+### Input:
 + Name des Servers
 + Server Typ
 + Datacenter ID
@@ -26,7 +26,7 @@ POST
 }
 ```
 
-###Result:
+### Result:
 
 ```json
 {

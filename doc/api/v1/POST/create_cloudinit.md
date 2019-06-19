@@ -1,13 +1,13 @@
 ## Create Cloud Init
 
-###Method:
+### Method:
 POST
 
-###Endpoint:
+### Endpoint:
 ```console
 /api/create/cloudinit
 ```
-###Input:
+### Input:
 + Name des Cloud Init Scripts
 + Base64 Encoded Cloud Init Script (SSH Schlüssel werden später automatisch hinzugefügt)
 
@@ -18,7 +18,7 @@ POST
 }
 ```
 
-###Result:
+### Result:
 
 ```json
 {
