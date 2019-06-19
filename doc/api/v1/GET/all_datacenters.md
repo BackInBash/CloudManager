@@ -1,4 +1,4 @@
-## Get All Datacnters
+## Get All Datacenters
 
 ### Method:
 
