@@ -7,6 +7,8 @@ package de.markus.cloudmanager.shared.cloud.hetzner;
 
 import java.util.ArrayList;
 import java.util.List;
+import me.tomsdevsn.hetznercloud.objects.general.Datacenter;
+import me.tomsdevsn.hetznercloud.objects.general.Image;
 import me.tomsdevsn.hetznercloud.objects.general.Server;
 
 /**
@@ -34,4 +36,25 @@ public class get extends api {
         }
         return ip;
     }
+    
+    public List<Datacenter> allDC(){
+        return cloudAPI.getDatacenters().getDatacenters();
+    }
+    
+    public List<Datacenter> allDCs(){
+        List<Datacenter> dcs = new ArrayList<Datacenter>();
+        for(Datacenter d : cloudAPI.getDatacenters().getDatacenters()){
+            dcs.add(d);
+        }
+        return dcs;
+    }
+    
+    public Datacenter DCByID(long id){
+        return cloudAPI.getDatacenter(id).getDatacenter();
+    }
+    
+    public List<Image> allOSImages(){
+        return cloudAPI.getImages().getImages();
+    }
+    
 }

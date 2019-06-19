@@ -15,6 +15,7 @@ de/markus/cloudmanager/shared/ssh/execute.class
 de/markus/cloudmanager/shared/cloud/hetzner/delete.class
 de/markus/cloudmanager/api/jetty/server.class
 de/markus/cloudmanager/service/jobs/ip.class
+de/markus/cloudmanager/api/jetty/get/datacenter.class
 de/markus/cloudmanager/shared/db/delete.class
 de/markus/cloudmanager/shared/cloudinit/encode.class
 de/markus/cloudmanager/shared/cloud/hetzner/api.class

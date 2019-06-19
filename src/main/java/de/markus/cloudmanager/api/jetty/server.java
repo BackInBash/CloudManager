@@ -29,7 +29,7 @@ public class server {
         servletHolder.setInitOrder(0);
         servletHolder.setInitParameter(
                 "jersey.config.server.provider.packages",
-                "de.markus.cloudmanager.api.jetty"
+                "de.markus.cloudmanager.api"
         );
         servletHolder.setAsyncSupported(true);
 
