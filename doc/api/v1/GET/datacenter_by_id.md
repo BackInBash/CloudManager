@@ -1,4 +1,4 @@
-## Get Datacnter By ID
+## Get Datacenter By ID
 
 ### Method:
 
