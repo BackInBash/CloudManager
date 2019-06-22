@@ -23,8 +23,8 @@ public class worker {
 
     public void schedule() throws SchedulerException {
 
-        JobDetail[] Job = new JobDetail[2];
-        Trigger[] Trigger = new Trigger[2];
+        JobDetail[] Job = new JobDetail[3];
+        Trigger[] Trigger = new Trigger[3];
 
         Job[0] = JobBuilder.newJob(ip.class).withIdentity("IP", "group1").build();
 
@@ -40,6 +40,14 @@ public class worker {
                 .newTrigger()
                 .withIdentity("ConfigTrigger", "group2")
                 .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(10).repeatForever())
+                .build();
+        
+        Job[2] = JobBuilder.newJob(CloudNode.class).withIdentity("Status", "group3").build();
+
+        Trigger[2] = TriggerBuilder
+                .newTrigger()
+                .withIdentity("StatusTrigger", "group3")
+                .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(15).repeatForever())
                 .build();
 
         for (int i = 0; i < Job.length; i++) {

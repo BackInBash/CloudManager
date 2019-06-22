@@ -3,6 +3,7 @@
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/server.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/db/get.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/post/create.java
+/Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/get/osimage.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/models/APIError.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/ssh/key.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/get/datacenter.java
@@ -10,6 +11,7 @@
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/models/APIResult.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/cloud/hetzner/api.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/cloudinit/encode.java
+/Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/cloud/hetzner/status.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/service/data.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/db/add.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/models/Config.java
@@ -19,6 +21,7 @@
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/service/jobs/config.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/service/worker.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/delete/server.java
+/Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/api/jetty/get/status.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/cloudinit/decode.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/models/APICreateCloudInit.java
 /Users/hax0r/Documents/Source/CloudManager/src/main/java/de/markus/cloudmanager/shared/models/SshPublicPrivateKey.java

@@ -11,10 +11,13 @@ de/markus/cloudmanager/shared/models/APIError.class
 de/markus/cloudmanager/shared/cloudinit/decode.class
 de/markus/cloudmanager/shared/db/config.class
 de/markus/cloudmanager/shared/ssh/key.class
+de/markus/cloudmanager/api/jetty/get/status.class
 de/markus/cloudmanager/shared/ssh/execute.class
 de/markus/cloudmanager/shared/cloud/hetzner/delete.class
+de/markus/cloudmanager/api/jetty/get/osimage.class
 de/markus/cloudmanager/api/jetty/server.class
 de/markus/cloudmanager/service/jobs/ip.class
+de/markus/cloudmanager/shared/cloud/hetzner/status.class
 de/markus/cloudmanager/api/jetty/get/datacenter.class
 de/markus/cloudmanager/shared/db/delete.class
 de/markus/cloudmanager/shared/cloudinit/encode.class

@@ -5,6 +5,7 @@
  */
 package de.markus.cloudmanager.service;
 
+import de.markus.cloudmanager.shared.models.HostList;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ public class data {
 
     // Saved Data
     private static List<String> CloudIPs;
+    private static List<HostList> CloudNodeList;
 
     // Setter
     public static void setCloudIPs(List<String> ip) {
@@ -22,8 +24,17 @@ public class data {
         CloudIPs = ip;
     }
 
+    public static void setCloudNode(List<HostList> vhost) {
+        CloudNodeList = null;
+        CloudNodeList = vhost;
+    }
+
     // Getter
     public static List<String> CloudIPs() {
         return CloudIPs;
+    }
+
+    public static List<HostList> getCloudNodes() {
+        return CloudNodeList;
     }
 }
