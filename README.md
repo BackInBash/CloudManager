@@ -30,10 +30,10 @@ In der Config müssen eingetragen werden:
 
 ```json
 {
-    APIKEY: "654sad5asd6a54d",
-    DB_IP: 192.168.11.10,
-    DB_NAME: CloudDB,
-    DB_USER: DBManager,
-    DB_PASSWORD: M@n@g3r
+    "APIKEY": "654sad5asd6a54d",
+    "DB_IP": "192.168.11.10",
+    "DB_NAME": "CloudDB",
+    "DB_USER": "DBManager",
+    "DB_PASSWORD": "M@n@g3r"
 }
 ```
