@@ -7,7 +7,9 @@ de/markus/cloudmanager/api/jetty/post/create.class
 de/markus/cloudmanager/api/jetty/delete/server.class
 de/markus/cloudmanager/config/config.class
 de/markus/cloudmanager/shared/db/add.class
+de/markus/cloudmanager/shared/monitor/network.class
 de/markus/cloudmanager/shared/models/APIError.class
+de/markus/cloudmanager/service/jobs/db.class
 de/markus/cloudmanager/shared/cloudinit/decode.class
 de/markus/cloudmanager/shared/db/config.class
 de/markus/cloudmanager/shared/ssh/key.class
@@ -23,6 +25,8 @@ de/markus/cloudmanager/shared/db/delete.class
 de/markus/cloudmanager/shared/cloudinit/encode.class
 de/markus/cloudmanager/shared/cloud/hetzner/api.class
 de/markus/cloudmanager/service/data.class
+de/markus/cloudmanager/service/jobs/CloudNode.class
+de/markus/cloudmanager/shared/models/HetznerStatus.class
 de/markus/cloudmanager/shared/models/APICreateCloudInit.class
 de/markus/cloudmanager/shared/cloud/hetzner/get.class
 de/markus/cloudmanager/api/jetty/get/config.class
@@ -32,3 +36,4 @@ de/markus/cloudmanager/shared/models/Config.class
 de/markus/cloudmanager/shared/models/APICreateServer.class
 de/markus/cloudmanager/main.class
 de/markus/cloudmanager/api/jetty/get/servers.class
+de/markus/cloudmanager/shared/models/HostList.class

@@ -8,6 +8,7 @@ package de.markus.cloudmanager.shared.cloud.hetzner;
 import java.util.ArrayList;
 import java.util.List;
 import me.tomsdevsn.hetznercloud.objects.general.Datacenter;
+import me.tomsdevsn.hetznercloud.objects.general.ServerType;
 import me.tomsdevsn.hetznercloud.objects.general.Image;
 import me.tomsdevsn.hetznercloud.objects.general.Server;
 
@@ -57,4 +58,11 @@ public class get extends api {
         return cloudAPI.getImages().getImages();
     }
     
+    public List<ServerType> serverTypes(){
+        return cloudAPI.getServerTypes().getServerTypes();
+    }
+    
+    public List<ServerType> serverTypebyName(String name){
+        return cloudAPI.getServerTypeByName(name).getServerTypes();
+    }
 }

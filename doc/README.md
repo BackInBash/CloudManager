@@ -6,6 +6,8 @@
 + [Get All Servers](api/v1/GET/all_servers.md)
 + [Get Server by ID](api/v1/GET/server_by_id.md)
 + [Get Server by Name](api/v1/GET/server_by_name.md)
++ [Get All Server Types ](api/v1/GET/all_server_types.md)
++ [Get Server Types by Name](api/v1/GET/server_types_by_name.md)
 + [Get All Datacenters](api/v1/GET/all_datacenters.md)
 + [Get Datacenter by ID](api/v1/GET/datacenter_by_id.md)
 + [Get All OS Images](api/v1/GET/all_osimages.md)

@@ -28,9 +28,27 @@ public class status {
     Gson gson = new Gson();
 
     @GET
-    @Path("/cloud")
+    @Path("/cloud/nodes")
     @Produces(MediaType.APPLICATION_JSON)
     public String status() {
+        try {
+            return gson.toJson(stat.parse());
+        } catch (FeedException ex) {
+            Logger.getLogger(status.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(status.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(status.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (XMLStreamException ex) {
+            Logger.getLogger(status.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "failed";
+    }
+    
+    @GET
+    @Path("/cloud/servers")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String serverStatus() {
         try {
             return gson.toJson(stat.parse());
         } catch (FeedException ex) {

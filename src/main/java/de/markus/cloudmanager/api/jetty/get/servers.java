@@ -43,4 +43,18 @@ public class servers {
     public String byName(@PathParam("param") String name) {
         return gson.toJson(srv.serverByName(name));
     }
+    
+    @GET
+    @Path("/type/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String ServerTypes(){
+        return gson.toJson(srv.serverTypes());
+    }
+    
+    @GET
+    @Path("/type/{param}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String ServerTypebyName(@PathParam("param") String name) {
+        return gson.toJson(srv.serverTypebyName(name));
+    }
 }

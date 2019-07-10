@@ -28,9 +28,8 @@ public class status {
 
     private static final String HETZNER_STATUS = "https://www.hetzner-status.de/en.atom";
     
-    private long CloudNodeID(String title){
-        String tmp = title.replaceAll("([a-z]|\\(.*\\))", "");
-        return Long.parseLong(tmp);
+    private String CloudNodeID(String title){
+        return title.replaceAll("([a-z]|\\(.*\\))", "");
     }
 
     public List<String> parse() throws XMLStreamException, IOException, IllegalArgumentException, FeedException {
@@ -42,8 +41,7 @@ public class status {
                 if (sy.getTitle().contains("cloud node")) {
                     if (!sy.getDescription().getValue().contains("All systems are reachable again")) {
                         if (!sy.getDescription().getValue().contains("The server is back online")) {
-                            System.out.println(sy);
-                            CloudNodeID(sy.getTitle());
+                            stats.add(CloudNodeID(sy.getTitle().toString()));
                         }
                     }
                 }
